@@ -8,14 +8,14 @@
 
             <div class="mb-3">
               <input type="text" formControlName="user"
-                     class="form-control form-control-lg"  placeholder="Ingrese username">
+                     class="form-control form-control-lg"  placeholder="Ingrese user id">
               <div class="text-danger" *ngIf="reservationForm.get('user')?.hasError('required')&& reservationForm.get('user')?.touched" >
                       <span>El user <strong>es obligatorio</strong></span>
               </div>
             </div>
             <div class="mb-3">
               <input type="text" formControlName="book"
-                    class="form-control form-control-lg" placeholder="Ingrese title del book">
+                    class="form-control form-control-lg" placeholder="Ingrese book id">
               <div class="text-danger"
               *ngIf="reservationForm.get('book')?.hasError('required')&& reservationForm.get('book')?.touched">
               <span>El title <strong>es obligatorio</strong></span>

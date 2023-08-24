@@ -1,0 +1,44 @@
+<div class="container mt-5">
+  <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+          <div class="card">
+              <div class="card-body text-center">
+                  <span class="titulo">LIST OF RESERVATIONS </span>
+                  <button class="btn btn-primary float-start" routerLink="/" >BACK HOME</button>
+                  <button class="btn btn-success float-end" routerLink="/crear-reservation" >NEW RESERVATION</button>
+                  <table *ngIf="listReservations.length >0" class="table table-striped" >
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">BOOK</th>
+                        <th scope="col">USER</th>
+                        <th scope="col">DATERESERVED</th>
+                        <th scope="col">DATEDUE</th>
+
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let reservation of listReservations;let  i=index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{reservation.book.title}}</td>
+                        <td>{{reservation.user.username}}</td>
+                        <td>{{reservation.dateReserved | date:'shortDate'}}</td>
+                        <td>{{reservation.dateDue | date:'shortDate'}}</td>
+
+                        <td>
+                          <i class="fa-solid fa-circle-info" [routerLink]="['/ver-reservation',reservation._id]"></i>
+                          <i [routerLink]="['/editar-reservation', reservation._id]" class="fas fa-edit text-primary"></i>
+                          <i (click)="deleteReservation(reservation._id)" class="fa-solid fa-trash text-danger" ></i>
+                        </td>
+
+                    </tbody>
+                  </table>
+
+
+                 <h5 style="text-align: start;margin: top 10px; ;" *ngIf="listReservations.length == 0">No hay Reservations para mostrar</h5>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

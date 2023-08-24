@@ -1,0 +1,38 @@
+<div class="container mt-5">
+  <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+          <div class="card">
+              <div class="card-body text-center">
+                  <span class="titulo">LIST OF USERS</span>
+                  <button class="btn btn-primary float-start" routerLink="/" >BACK HOME</button>
+                  <button class="btn btn-success float-end" routerLink="/crear-user" >NEW USER</button>
+                  <table *ngIf="listUsers.length >0" class="table table-striped" >
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Email</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let user of listUsers;let  i=index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{user.username}}</td>
+                        <td>{{user.email}}</td>
+                        <td>
+                          <i class="fa-solid fa-circle-info" [routerLink]="['/ver-user',user._id]"></i>
+                          <i class="fa-solid fa-user-pen text-primary" [routerLink]="['/editar-user',user._id]"></i>
+                          <i (click)="deleteUser(user._id)" class="fa-solid fa-trash text-danger" ></i>
+                        </td>
+
+                    </tbody>
+                  </table>
+
+
+                 <h5 style="text-align: start;margin: top 10px; ;" *ngIf="listUsers.length == 0">No hay usuarios para mostrar</h5>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

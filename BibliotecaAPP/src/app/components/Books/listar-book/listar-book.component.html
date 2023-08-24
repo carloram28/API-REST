@@ -1,0 +1,41 @@
+<div class="container mt-5">
+  <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+          <div class="card">
+              <div class="card-body text-center">
+                  <span class="titulo">LIST OF BOOKS</span>
+                  <button class="btn btn-primary float-start" routerLink="/" >BACK HOME</button>
+                  <button class="btn btn-success float-end" routerLink="/crear-book" >NEW BOOK</button>
+                  <table *ngIf="listBooks.length >0" class="table table-striped" >
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Available</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let book of listBooks;let  i=index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{book.title}}</td>
+                        <td>{{book.author}}</td>
+                        <td>{{book.available}}</td>
+
+                        <td>
+                          <i class="fa-solid fa-circle-info" [routerLink]="['/ver-book',book._id]"></i>
+                          <i class="fa-solid fa-pen-to-square text-primary" [routerLink]="['/editar-book',book._id]"></i>
+                          <i (click)="deleteBook(book._id)" class="fa-solid fa-trash text-danger" ></i>
+                        </td>
+
+                    </tbody>
+                  </table>
+
+
+                 <h5 style="text-align: start;margin: top 10px; ;" *ngIf="listBooks.length == 0">No hay books para mostrar</h5>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+          <div class="card">
+              <div class="card-body text-center">
+                  <span class="titulo">BOOKS DETAILS</span>
+                  <table *ngIf="book" class="table table-striped" >
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Available</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr >
+                        <th scope="row">1</th>
+                        <td>{{book.title}}</td>
+                        <td>{{book.author}}</td>
+                        <td>{{book.available}}</td>
+
+
+                    </tbody>
+                  </table>
+                  <button class="btn btn-primary float-center" routerLink="/listar-book" >BACK TO BOOKS</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
